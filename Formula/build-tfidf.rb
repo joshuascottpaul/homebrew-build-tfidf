@@ -3,8 +3,8 @@ class BuildTfidf < Formula
 
   desc "High-quality semantic search for Markdown corpora"
   homepage "https://github.com/joshuascottpaul/build_tfidf"
-  url "https://github.com/joshuascottpaul/build_tfidf/archive/refs/tags/v0.1.4.tar.gz"
-  sha256 "2d7acec7cfd9718e825aa2f904f71f77c44bc012e71e599b9e22850acbd492ef"
+  url "https://github.com/joshuascottpaul/build_tfidf/archive/refs/tags/v0.1.5.tar.gz"
+  sha256 "deddb1c7a2f68193ec87a619fdb894e853c52f8a7a111ae4e3166b886b9e0b61"
   license "MIT"
 
   depends_on "python@3.10"
