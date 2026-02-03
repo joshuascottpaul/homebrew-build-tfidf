@@ -139,10 +139,11 @@ class BuildTfidf < Formula
   def install
     venv = virtualenv_create(libexec, "python3.10")
     resources.each do |r|
-      r.stage do
-        if r.url.end_with?(".whl")
-          system libexec/"bin/pip", "install", "--no-deps", "--only-binary", ":all:", "."
-        else
+      if r.url.end_with?(".whl")
+        r.fetch
+        venv.pip_install r.cached_download
+      else
+        r.stage do
           system libexec/"bin/pip", "install", "--no-deps", "."
         end
       end
