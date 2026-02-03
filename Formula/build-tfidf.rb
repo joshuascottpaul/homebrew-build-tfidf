@@ -144,7 +144,7 @@ class BuildTfidf < Formula
         venv.pip_install r.cached_download
       else
         r.stage do
-          system libexec/"bin/pip", "install", "--no-deps", "."
+          venv.pip_install Pathname.pwd
         end
       end
     end
