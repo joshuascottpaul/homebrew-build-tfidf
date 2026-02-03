@@ -62,9 +62,13 @@ class BuildTfidf < Formula
     sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
   end
 
-  resource "numpy" do
-    url "https://files.pythonhosted.org/packages/ec/d0/c12ddfd3a02274be06ffc71f3efc6d0e457b0409c4481596881e748cb264/numpy-2.2.2.tar.gz"
-    sha256 "ed6906f61834d687738d25988ae117683705636936cc605be0bb208b23df4d8f"
+  on_macos do
+    on_arm do
+      resource "numpy" do
+        url "https://files.pythonhosted.org/packages/31/2c/39f91e00bbd3d5639b027ac48c55dc5f2992bd2b305412d26be4c830862a/numpy-2.2.2-cp310-cp310-macosx_11_0_arm64.whl"
+        sha256 "2ec6c689c61df613b783aeb21f945c4cbe6c51c28cb70aae8430577ab39f163e"
+      end
+    end
   end
 
   resource "openai" do
