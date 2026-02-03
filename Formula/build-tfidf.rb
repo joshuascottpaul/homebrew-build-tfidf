@@ -137,7 +137,13 @@ class BuildTfidf < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, "python3.10")
+    resources.each do |r|
+      r.stage do
+        venv.pip_install Pathname.pwd
+      end
+    end
+    venv.pip_install_and_link buildpath
     bin.install_symlink libexec/"bin/tfidf-search"
   end
 
