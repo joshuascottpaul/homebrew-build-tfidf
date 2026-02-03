@@ -139,6 +139,7 @@ class BuildTfidf < Formula
   def install
     venv = virtualenv_create(libexec, "python3.10")
     system libexec/"bin/python", "-m", "ensurepip"
+    system libexec/"bin/pip", "install", "--upgrade", "pip", "setuptools", "wheel"
     resources.each do |r|
       if r.url.end_with?(".whl")
         r.fetch
