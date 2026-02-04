@@ -10,6 +10,7 @@ class BuildTfidf < Formula
   depends_on "python@3.10"
 
   def install
+    ENV["HOMEBREW_SKIP_RELOCATE"] = "1"
     venv = virtualenv_create(libexec, "python3.10")
     system libexec/"bin/python", "-m", "ensurepip"
     system libexec/"bin/python", "-m", "pip", "install", "--only-binary", ":all:", "--no-deps", "-r", buildpath/"requirements.txt"
