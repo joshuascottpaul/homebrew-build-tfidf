@@ -13,7 +13,7 @@ class BuildTfidf < Formula
     venv = virtualenv_create(libexec, "python3.10")
     system libexec/"bin/python", "-m", "ensurepip"
     system libexec/"bin/python", "-m", "pip", "install", "--only-binary", ":all:", "--no-deps", "-r", buildpath/"requirements.txt"
-    system libexec/"bin/python", "-m", "pip", "install", "--no-deps", "--no-build-isolation", "--no-use-pep517", buildpath
+    system libexec/"bin/python", "-m", "pip", "install", "--no-deps", "--no-build-isolation", buildpath
     bin.install_symlink libexec/"bin/tfidf-search"
   end
 
